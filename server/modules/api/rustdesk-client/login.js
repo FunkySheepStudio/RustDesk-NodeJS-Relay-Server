@@ -2,7 +2,7 @@ const LdapClient = require('../../ldap')
 const LdapAuth = require('../../ldap/auth')
 
 function Post(req, res)
-{
+{   console.log(req.body)
     // Get the LDAP connected user
     let ldapClient = LdapClient()
     const searchDN = 'dc=ra-cci,dc=local'

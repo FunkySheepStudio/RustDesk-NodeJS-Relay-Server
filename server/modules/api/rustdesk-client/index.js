@@ -6,6 +6,7 @@ exports.Start = (app) => {
     require('./currentUser')(app)
     require('./peers')(app)
     require('./heartbeat')(app)
-    require('./sysinfo')(app)
+    require('./sysinfo').Setup(app)
+    require('./audit/conn')(app)
     console.log("Rusk relay started")
 }

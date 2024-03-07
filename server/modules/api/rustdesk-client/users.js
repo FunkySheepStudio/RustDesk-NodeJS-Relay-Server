@@ -5,7 +5,7 @@ function Get(req, res)
     res.end(JSON.stringify({
         data: [
             {
-                name: "Bob MARLEY",
+                name: "SJARDE.69R",
                 isAdmin: false
             }
         ],

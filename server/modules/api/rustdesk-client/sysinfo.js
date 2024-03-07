@@ -7,10 +7,11 @@ function Get(req, res)
 
 function Post(req, res)
 {
-    let instance = Instances.find(item => item.id === req.body.id)
-    if (instance)
+    let itemID = Instances.findIndex(item => item.id === req.body.id && item.username === req.body.username)
+    req.body.modified_at = new Date()
+    if (itemID >= 0)
     {
-        instance = req.body.id
+        Instances[itemID] = req.body
     } else {
         Instances.push(req.body)
     }
@@ -18,7 +19,8 @@ function Post(req, res)
     res.end(JSON.stringify({}))
 }
 
-module.exports = function (app) {
+exports.Instances = Instances
+exports.Setup = function (app) {
     app.get('/api/sysinfo', Get)
     app.post('/api/sysinfo', Post)
 }

@@ -1,14 +1,19 @@
+let sysinfo = require('./sysinfo');
+
 function Get(req, res)
 {
-  console.log("peers")
-  console.log(req.body)
+  let newArray = sysinfo.Instances.map((item) => { return {
+    id: item.id,
+    user_name: item.username,
+    info: {
+      device_name: item.hostname,
+      user_name: item.username
+    }
+  }})
+
   res.end(JSON.stringify({
-    data: [
-        {
-          id: "My ID super cracky",
-        }
-    ],
-    total: 1
+    data: newArray,
+    total: newArray.length
 }))
 }
 
