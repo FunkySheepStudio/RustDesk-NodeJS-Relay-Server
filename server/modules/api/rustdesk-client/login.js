@@ -1,5 +1,5 @@
-const LdapClient = require('../ldap')
-const LdapAuth = require('../ldap/auth')
+const LdapClient = require('../../ldap')
+const LdapAuth = require('../../ldap/auth')
 
 function Post(req, res)
 {
